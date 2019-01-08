@@ -15,12 +15,12 @@ namespace ConsoleApp1
         private IPAddress _enderecoIP;
         private bool Conectado;
         private string _resposta;
-        NetworkStream stream;
-        StreamReader reader;
+        NetworkStream stream = null;
+        StreamReader reader = null;
+
 
         public void InicializaConexao()
         {
-
             if (!Conectado)
             {
                 try
@@ -44,8 +44,6 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("Cliente já está conectado!");
             }
-
-
         }
 
         public void FechaConexao()
@@ -53,15 +51,25 @@ namespace ConsoleApp1
             if (Conectado)
             {
                 _tcpSocket.Close();
+
+                if (stream != null)
+                {
+                    stream.Close();
+                }
+
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+
                 Conectado = false;
-                stream.Close();
-                reader.Close();
+
             }
             else
             {
                 Console.WriteLine("Cliente já está desconectado!");
             }
-            
+
         }
 
         public void EnviarMensagem(string mensagem)
@@ -69,7 +77,7 @@ namespace ConsoleApp1
             if (Conectado)
             {
                 byte[] msg = Encoding.UTF8.GetBytes(mensagem);
-                NetworkStream stream = _tcpSocket.GetStream();
+                stream = _tcpSocket.GetStream();
                 try
                 {
                     stream.Write(msg, 0, msg.Length);
@@ -81,28 +89,33 @@ namespace ConsoleApp1
                     Console.WriteLine(e.Message);
                     FechaConexao();
                 }
-                
+
             }
             else
             {
                 Console.WriteLine("Cliente Desconectado, para enviar mensagens é necessário que o cliente esteja conectado!");
-            }            
+            }
 
         }
 
         public void ReceberMensagem()
         {
+            StringBuilder sb = new StringBuilder();
             stream = _tcpSocket.GetStream();
             reader = new StreamReader(stream, Encoding.UTF8);
-            
-                while (reader.Peek() >= 0)
-                {
-                    Console.Write((char)reader.Read());
-                }            
-            
+
+            while (reader.Peek() >= 0)
+            {
+                sb.Append((char)reader.Read());
+                //Console.Write((char)reader.Read());
+            }
+
+            Console.WriteLine(sb);
+            sb.Clear();
+
         }
 
-        
+
 
     }
 
