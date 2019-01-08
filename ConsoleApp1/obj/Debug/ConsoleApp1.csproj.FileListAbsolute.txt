@@ -1,0 +1,7 @@
+d:\users\rasoares\source\repos\ClientSocket\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+d:\users\rasoares\source\repos\ClientSocket\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+d:\users\rasoares\source\repos\ClientSocket\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+d:\users\rasoares\source\repos\ClientSocket\ConsoleApp1\obj\Debug\ConsoleApp1.csprojAssemblyReference.cache
+d:\users\rasoares\source\repos\ClientSocket\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+d:\users\rasoares\source\repos\ClientSocket\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+d:\users\rasoares\source\repos\ClientSocket\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
