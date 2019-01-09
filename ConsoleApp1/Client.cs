@@ -85,7 +85,6 @@ namespace ConsoleApp1
                 }
                 catch (Exception e)
                 {
-
                     Console.WriteLine(e.Message);
                     FechaConexao();
                 }
@@ -101,13 +100,13 @@ namespace ConsoleApp1
         public void ReceberMensagem()
         {
             StringBuilder sb = new StringBuilder();
-            stream = _tcpSocket.GetStream();
+            stream = _tcpSocket.GetStream();            
+
             reader = new StreamReader(stream, Encoding.UTF8);
 
             while (reader.Peek() >= 0)
-            {
-                sb.Append((char)reader.Read());
-                //Console.Write((char)reader.Read());
+            {                
+                sb.Append((char)reader.Read());                
             }
 
             Console.WriteLine(sb);
