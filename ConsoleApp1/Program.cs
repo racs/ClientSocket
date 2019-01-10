@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace ConsoleApp1
 {
     class Program
     {
         private static bool isclosing = false;
+        private Thread mensagemThread;
 
         static void Main(string[] args)
         {
@@ -32,8 +34,8 @@ namespace ConsoleApp1
                         break;
                     case "send":
                         Console.WriteLine("Digite a mensagem");
-                        string msg = Console.ReadLine();
-                        cliente.EnviarMensagem(msg);
+                        string msg = Console.ReadLine();                        
+                        cliente.Send(msg);
                         break;
                     default:
                         break;
