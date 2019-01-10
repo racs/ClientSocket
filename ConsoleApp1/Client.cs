@@ -39,8 +39,6 @@ namespace ConsoleApp1
                     _tcpSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                     _tcpSocket.Connect(_enderecoIP, 5060);
 
-
-
                     // AJuda a verificar se estamos conectados ou não
                     Conectado = true;
                     //mensagemThread = new Thread(new ThreadStart(ReceberMensagem));
@@ -61,11 +59,12 @@ namespace ConsoleApp1
             }
         }
 
-        public void FechaConexao()
+        public void FecharConexao()
         {
             if (Conectado)
             {
-                _tcpSocket.Close();
+                _tcpSocket.Disconnect(true);
+                //_tcpSocket.Close();
 
                 if (stream != null)
                 {

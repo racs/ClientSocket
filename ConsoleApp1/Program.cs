@@ -30,7 +30,7 @@ namespace ConsoleApp1
                         cliente.InicializaConexao();
                         break;
                     case "disconnect":
-                        cliente.FechaConexao();
+                        cliente.FecharConexao();
                         break;
                     case "send":
                         Console.WriteLine("Digite a mensagem");
@@ -81,7 +81,7 @@ namespace ConsoleApp1
                 case CtrlTypes.CTRL_C_EVENT:
 
                     isclosing = true;
-                    cliente.FechaConexao();
+                    cliente.FecharConexao();
                     Console.WriteLine("CTRL+C received!");
 
                     break;
@@ -91,7 +91,7 @@ namespace ConsoleApp1
                 case CtrlTypes.CTRL_BREAK_EVENT:
 
                     isclosing = true;
-                    cliente.FechaConexao();
+                    cliente.FecharConexao();
                     Console.WriteLine("CTRL+BREAK received!");
 
                     break;
@@ -102,7 +102,7 @@ namespace ConsoleApp1
 
                     isclosing = true;
 
-                    cliente.FechaConexao();
+                    cliente.FecharConexao();
 
                     Console.WriteLine("Program being closed!");
 
@@ -111,13 +111,13 @@ namespace ConsoleApp1
 
 
                 case CtrlTypes.CTRL_LOGOFF_EVENT:
-                    cliente.FechaConexao();
+                    cliente.FecharConexao();
                     break;
 
                 case CtrlTypes.CTRL_SHUTDOWN_EVENT:
 
                     isclosing = true;
-                    cliente.FechaConexao();
+                    cliente.FecharConexao();
                     Console.WriteLine("User is logging off!");
 
                     break;
